@@ -14,23 +14,16 @@ package no.nerbraten.curves.gfx
  *
  */
 
-class BSpline(controlPoints: List[Point]) {
+class BSpline(controlPoints: List[Point], resolution: Int = 100) {
   private val points = controlPoints
+  private val steps = resolution
 
 
-  def s(t: Float): Point = {
+  def calculatePoint(t: Float): Point = {
     points(0)*((((-t+3)*t-3)*t+1)/6) + points(1)*((((3*t-6)*t)*t+4)/6) + points(2)*((((-3*t+3)*t+3)*t+1)/6) + points(3)*((t*t*t)/6)
   }
 
-  def spline(): List[Point] = {
-    val steps = 100
-    var splinePoints: List[Point] = Nil
-    for(i <- 0 until steps) {
-      println(i)
-      val point = s(i/steps.floatValue)
-      println(point)
-      splinePoints = point :: splinePoints
-    }
-    splinePoints
+  def spline() = {
+    (0 until steps).map(i => calculatePoint(i/steps.floatValue))
   }
 }
