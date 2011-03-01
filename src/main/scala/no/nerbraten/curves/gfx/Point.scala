@@ -1,8 +1,8 @@
 package no.nerbraten.curves.gfx
 
 class Point(xv: Int, yv: Int) {
-  private val x = xv;
-  private val y = yv;
+  val x = xv;
+  val y = yv;
 
   def +(point: Point) = {
     new Point(x + point.x, y + point.y)
