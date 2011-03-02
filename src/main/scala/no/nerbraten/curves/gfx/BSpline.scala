@@ -1,7 +1,7 @@
 package no.nerbraten.curves.gfx
 
 
-class BSpline(controlPoints: List[Point], resolution: Int = 100) {
+class BSpline(controlPoints: List[Point], resolution: Int = 10) {
 
   lazy val spline = controlPoints.sliding(4).map(calculateSegment(_)).toList.flatten
 

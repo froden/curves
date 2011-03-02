@@ -29,7 +29,7 @@ class CurvesApplet extends Applet {
         )
         val bspline = new BSpline(points)
         points.foreach(point => g.draw(new Ellipse2D.Double(point.x, point.y, 10, 10)))
-        bspline.spline.foreach(point => g.draw(new Ellipse2D.Double(point.x, point.y, 10, 10)))
+        bspline.spline.sliding(2).foreach(points => g.drawLine(points(0).x, points(0).y, points(1).x, points(1).y))
       }
 
     }
