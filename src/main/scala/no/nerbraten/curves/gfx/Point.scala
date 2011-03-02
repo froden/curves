@@ -12,5 +12,5 @@ class Point(xv: Int, yv: Int) {
     new Point((x * scalar).round, (y * scalar).round)
   }
 
-  override def toString = x + ", " + y
+  override def toString = "Point(" + x + ", " + y + ")"
 }
